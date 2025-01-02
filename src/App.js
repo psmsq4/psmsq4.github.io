@@ -4,14 +4,20 @@ import { useState } from 'react';
 
 function MyButton({ onClick, num }) {
   return (
-    <button onClick={onClick}> {num} </button>
+    <button style={{ color: 'blue', fontSize: '20px', padding: '15px 32px' }} onClick={onClick}> {num} </button>
   );
 }
 
 export default function App() {
   const [num, setNum] = useState(0);
 
+  function handleClick() {
+    setNum(num + 1)
+  }
+
   return (
-    <MyButton onClick={() => setNum(num++)}></MyButton>
+    <div>
+      <MyButton onClick={handleClick} num={num}></MyButton>
+    </div>
   );
 }
